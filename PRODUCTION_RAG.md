@@ -53,7 +53,7 @@ RAG is not "embed → search → stuff into prompt." At scale it is a **distribu
 | 12 | **Robustness** | Prompt injection, adversarial docs, jailbreaks, poisoned content. |
 
 ---
-
+## 3. Reference Architecture
 ![RAG Flow](rag_flow.png)
 
 **Cross-cutting layers:** caching (semantic + exact), evaluation harness, tracing/observability, feature flags for model/prompt versions, and a feedback store for continuous improvement.
