@@ -353,7 +353,7 @@ I look for **trade-off reasoning and production judgment**, not textbook definit
 
 ## 11. Rubric — How I Score Candidates
 
-| Signal | Junior answer | Staff answer |
+| Signal | Junior answer | Answer |
 |--------|---------------|--------------|
 | **Retrieval** | "Use embeddings and cosine similarity" | Hybrid + rerank, discusses recall/precision trade-offs, ANN tuning |
 | **Chunking** | "Split by 500 tokens" | Layout-aware, parent-child, overlap reasoning, ingestion pipeline |
