@@ -9,7 +9,7 @@
 ## Table of Contents
 
 1. [Mental Model & Operating Principles](#1-mental-model--operating-principles)
-2. [Challenges I Own as Staff/Principal](#2-challenges-i-own-as-staffprincipal)
+2. [Challenges ](#2-challenges-i-own-as-staffprincipal)
 3. [Reference Architecture](#3-reference-architecture)
 4. [Types of RAG I Would Cover & Implement](#4-types-of-rag-i-would-cover--implement)
 5. [Scenarios & How I Answer Them](#5-scenarios--how-i-answer-them)
@@ -17,7 +17,7 @@
 7. [Evaluation, Observability & Guardrails](#7-evaluation-observability--guardrails)
 8. [Cost, Latency & Accuracy Trade-offs](#8-cost-latency--accuracy-trade-offs)
 9. [Security, Privacy & Compliance](#9-security-privacy--compliance)
-10. [Interview Question Bank (Staff-Level)](#10-interview-question-bank-staff-level)
+10. [Interview Question Bank](#10-interview-question-bank-staff-level)
 11. [Rubric — How I Score Candidates](#11-rubric--how-i-score-candidates)
 
 ---
