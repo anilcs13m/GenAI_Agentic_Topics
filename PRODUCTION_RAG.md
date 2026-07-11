@@ -54,37 +54,7 @@ RAG is not "embed → search → stuff into prompt." At scale it is a **distribu
 
 ---
 
-## 3. Reference Architecture
-
-```
-                          ┌──────────────────────────────────────────────┐
-        INGESTION (async)  │  Sources: Confluence, S3, DBs, PDFs, APIs     │
-                          └───────────────┬──────────────────────────────┘
-                                          ▼
-        ┌──────────┐  ┌───────────┐  ┌──────────┐  ┌────────────┐  ┌──────────────┐
-        │  Loaders │→ │  Clean/   │→ │ Chunker  │→ │ Embed model│→ │ Vector DB +  │
-        │ (parse)  │  │  dedupe/  │  │ (semantic│  │ (batch)    │  │ metadata /   │
-        │          │  │  PII scrub│  │  layout) │  │            │  │ BM25 index   │
-        └──────────┘  └───────────┘  └──────────┘  └────────────┘  └──────────────┘
-
-                          ┌──────────────────────────────────────────────┐
-        QUERY (sync)       │              User query + auth context        │
-                          └───────────────┬──────────────────────────────┘
-                                          ▼
-   ┌────────────┐  ┌──────────────┐  ┌──────────────┐  ┌───────────┐  ┌───────────┐  ┌──────────┐
-   │ Query      │→ │ Hybrid       │→ │ Metadata /   │→ │ Reranker  │→ │ Context   │→ │ LLM      │
-   │ rewrite/   │  │ retrieval    │  │ ACL filter   │  │ (cross-   │  │ assembler │  │ +        │
-   │ expand     │  │ (vec + BM25) │  │              │  │ encoder)  │  │ (dedup,   │  │ citation │
-   │            │  │              │  │              │  │           │  │  compress)│  │ + guard  │
-   └────────────┘  └──────────────┘  └──────────────┘  └───────────┘  └───────────┘  └──────────┘
-                                                                                          │
-                                          ┌───────────────────────────────────────────────┘
-                                          ▼
-                          ┌──────────────────────────────────────────────┐
-                          │  Post-gen: faithfulness check, PII redaction, │
-                          │  citation validation, caching, feedback loop  │
-                          └──────────────────────────────────────────────┘
-```
+![RAG Flow](rag_flow.png)
 
 **Cross-cutting layers:** caching (semantic + exact), evaluation harness, tracing/observability, feature flags for model/prompt versions, and a feedback store for continuous improvement.
 
